@@ -1,78 +1,54 @@
+<br>
+
+## 🚉 지하철 노선도 애플리케이션
+<br>
+
 <p align="center">
     <img width="200px;" src="https://raw.githubusercontent.com/woowacourse/atdd-subway-admin-frontend/master/images/main_logo.png"/>
 </p>
-<p align="center">
-  <img alt="npm" src="https://img.shields.io/badge/npm-%3E%3D%205.5.0-blue">
-  <img alt="node" src="https://img.shields.io/badge/node-%3E%3D%209.3.0-blue">
-  <a href="https://edu.nextstep.camp/c/R89PYi5H" alt="nextstep atdd">
-    <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fedu.nextstep.camp%2Fc%2FR89PYi5H">
-  </a>
-  <img alt="GitHub" src="https://img.shields.io/github/license/next-step/atdd-subway-service">
-</p>
+
+
+### 💻 나의 프로젝트의 목표와 성과
+#### 목표
+- AWS 상에서 네트워크를 구성해본다.
+- 컨테이너를 학습하고 3 tier로 운영환경을 구성해본다.
+- Docker 가 필요한 이유에 대해 생각해본다.
+- 애플리케이션이 운영되는 환경을 구성해보며 네트워크, 운영체제, 데이터베이스, 컨테이너 등에 대해 생각해본다.
+
+#### 성과
+- 실제 상용되는 서비스가 되기 위해서 필요한 요소들(`24시간`, `보안`, `무중단`)에 대한 이해와 이를 바탕으로 한 인프라 설계 <br>
+  [↳ 그럴듯한 서비스란? 에 관한 블로그 포스팅 (@yyy96)](https://velog.io/@yyy96/인프라-미션)
+  
+- VPC 생성을 통한 subnet, internet gateway, route table 등 네트워크 이해 및 설계 <br>
+  [↳ 통신망 구성에 관한 블로그 포스팅 (@yyy96)](https://velog.io/@yyy96/통신망)
+  
+- Docker을 사용한 배포 및 배포 스크립트 작성<br>
+  [↳ 배포에 관한 블로그 포스팅 (@yyy96)](https://velog.io/@yyy96/통신망)
+
+
+<br><br><br>
+
+![image](https://user-images.githubusercontent.com/65826145/198815976-1e528d2e-068b-4ca3-8843-bb00f8bc7be9.png)
+
+<br><br>
+
+### 웹 서비스를 위한 통신망 구성하기
+1. 구성한 망의 서브넷 대역
+> - 대역 :
+>   - 192.168.13.0/26 (외부망1, ap-northeast-2a), 
+>   - 192.168.13.64/26 (외부망2, ap-northeast-2b), 
+>   - 192.168.13.128/27(내부망, ap-northeast-2c), 
+>   - 192.168.13.160/27(관리망, ap-northeast-2d)
+
+2. 배포한 서비스의 공인 IP(혹은 URL)
+> - IP  : 13.125.146.68
+> - URL : https://infrayyy96.o-r.kr/
 
 <br>
 
-# 인프라공방 샘플 서비스 - 지하철 노선도
+### 웹 애플리케이션 배포하기
+1. TLS가 적용된 URL
+> - URL : https://infrayyy96.o-r.kr/
 
-<br>
-
-## 🚀 Getting Started
-
-### Install
-#### npm 설치
-```
-cd frontend
-npm install
-```
-> `frontend` 디렉토리에서 수행해야 합니다.
-
-### Usage
-#### webpack server 구동
-```
-npm run dev
-```
-#### application 구동
-```
-./gradlew clean build
-```
-<br>
-
-## 미션
-
-* 미션 진행 후에 아래 질문의 답을 README.md 파일에 작성하여 PR을 보내주세요.
-
-### 0단계 - pem 키 생성하기
-
-1. 서버에 접속을 위한 pem키를 [구글드라이브](https://drive.google.com/drive/folders/1dZiCUwNeH1LMglp8dyTqqsL1b2yBnzd1?usp=sharing)에 업로드해주세요
-
-2. 업로드한 pem키는 무엇인가요.
-infra-workshop-5 폴더 / pem키: yyy96-public-key.pem
-
-### 1단계 - 망 구성하기
-1. 구성한 망의 서브넷 대역을 알려주세요
-- 대역 :
-  - 192.168.13.0/26 (외부망1, ap-northeast-2a), 
-  - 192.168.13.64/26 (외부망2, ap-northeast-2b), 
-  - 192.168.13.128/27(내부망, ap-northeast-2c), 
-  - 192.168.13.160/27(관리망, ap-northeast-2d)
-
-2. 배포한 서비스의 공인 IP(혹은 URL)를 알려주세요
-- IP  : 13.125.146.68
-- URL : https://infrayyy96.o-r.kr/
-
-
-
----
-
-### 2단계 - 배포하기
-1. TLS가 적용된 URL을 알려주세요
-- URL : https://infrayyy96.o-r.kr/
-
----
-
-### 3단계 - 배포 스크립트 작성하기
-
-1. 작성한 배포 스크립트를 공유해주세요.
-- deploy.sh
-
-
+2. 배포 스크립트 작성
+> - deploy.sh
